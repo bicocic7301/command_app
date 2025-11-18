@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import logoDark from "./logo-dark.svg";
-import logoLight from "./logo-light.svg";
-import "./pic.css"
+import "./left.css"
 
-export function Welcome() {
+export function Leftside() {
   const [message, setMessage] = useState<string | null>(null);  // State to store API response
   const [loading, setLoading] = useState<boolean>(true);  // Loading state
 
@@ -26,11 +24,28 @@ export function Welcome() {
     const handleKeyDown = (event) => {
       console.log('Key pressed:', event.key);
       // You can add specific logic here based on event.key
-      if (event.key === 'ArrowLeft') {
-        window.location.href = 'http://localhost:5173/left';
+      if (event.key === 'Escape') {
+        console.log('Escape key pressed!');
         // Perform actions like closing a modal
-      } else if (event.key === 'ArrowRight') {
-        window.location.href = 'http://localhost:5173/right';
+      }
+    };
+
+    // Add the event listener to the document
+    document.addEventListener('keydown', handleKeyDown);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+    useEffect(() => {
+    // Define the event handler function
+    const handleKeyDown = (event) => {
+      console.log('Key pressed:', event.key);
+      // You can add specific logic here based on event.key
+      if (event.key === 'ArrowRight') {
+        window.location.href = 'http://localhost:5173/';
         // Perform actions like closing a modal
       }
     };
@@ -52,22 +67,6 @@ export function Welcome() {
           </div>
         </header>
         <div className="max-w-[300px] w-full space-y-6 px-4">
-          <nav className="rounded-3xl border border-gray-200 p-6 dark:border-gray-700 space-y-4">
-            <p className="leading-6 text-gray-700 dark:text-gray-200 text-center">
-                        {/* Display the API response */}
-          <div className="mt-6 text-center">
-            {loading ? (
-              <p>Loading...</p>
-            ) : (
-              <p>{message ? message : "No message received"}</p>
-            )}
-          </div>
-            </p>
-            <ul>
-   
-            </ul>
-          </nav>
-
 
         </div>
       </div>

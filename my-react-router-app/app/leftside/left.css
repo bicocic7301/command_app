@@ -1,0 +1,11 @@
+.full-page-background {
+      background-image: url('./pic.png'); /* Adjust path to your image */
+      background-size: cover; /* Scales the image to cover the entire container */
+      background-repeat: no-repeat; /* Prevents image repetition */
+      background-position: center center; /* Centers the image horizontally and vertically */
+      background-attachment: fixed; /* Keeps the background image fixed during scrolling */
+      min-height: 100vh; /* Ensures the container takes up at least the full viewport height */
+      width: 100vw; /* Ensures the container takes up the full viewport width */
+      /* Optional: Add a fallback background color */
+      background-color: #f0f0f0; 
+    }
